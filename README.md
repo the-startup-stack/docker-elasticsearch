@@ -20,7 +20,13 @@ path:
   data: /data/data
 ```
 
-* Start the container `docker run -p 9200:9200 --name elastic -d -p 9300:9300 -v "$PWD/data":/data thestartupstack/elasticsearch /elasticsearch/bin/elasticsearch -Des.config=/data/elasticsearch.yml`
+* Start the container  
+```
+docker run -p 9200:9200 \
+ --name elastic -d -p 9300:9300 \
+ -v "$PWD/data":/data \
+ thestartupstack/elasticsearch /elasticsearch/bin/elasticsearch -Des.config=/data/elasticsearch.yml
+```
 
 ### Contribution
 
