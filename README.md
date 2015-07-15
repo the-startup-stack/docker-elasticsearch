@@ -28,6 +28,24 @@ docker run -p 9200:9200 \
  thestartupstack/elasticsearch /elasticsearch/bin/elasticsearch -Des.config=/data/elasticsearch.yml
 ```
 
+### Boot2docker
+
+If you are running boot2docker, you need to make sure 9200 and 9300 are exposed
+
+If the image (boot2docker VM) is already running run this command:
+
+```
+VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port92000,tcp,,9200,,9200"
+VBoxManage modifyvm "boot2docker-vm" --natpf1 "tcp-port9300,tcp,,9300,,9300"
+```
+
+If not, run this command
+
+```
+  VBoxManage controlvm "boot2docker-vm" natpf1 "tcp-port92000,tcp,,9200,,9200"
+  VBoxManage controlvm "boot2docker-vm" natpf1 "tcp-port9300,tcp,,9300,,9300"
+```
+
 ### Contribution
 
 [Read Here](https://github.com/the-startup-stack/docs#contribution-guide)
